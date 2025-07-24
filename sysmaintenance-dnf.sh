@@ -1,6 +1,8 @@
 #!/bin/bash
 
-read -p "Enter your sudo password: " <password>
+echo -n "Enter your sudo password: "
+
+read password
 
 echo $password | sudo -S dnf upgrade -y
 
