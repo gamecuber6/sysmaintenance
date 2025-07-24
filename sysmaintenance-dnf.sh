@@ -1,10 +1,23 @@
 #!/bin/bash
 
+echo "
+
+                       __  ___        _         __
+   _____ __  __ _____ /  |/  /____ _ (_)____   / /_ ___   ____   ____ _ ____   _____ ___
+  / ___// / / // ___// /|_/ // __ `// // __ \ / __// _ \ / __ \ / __ `// __ \ / ___// _ \
+ (__  )/ /_/ /(__  )/ /  / // /_/ // // / / // /_ /  __// / / // /_/ // / / // /__ /  __/
+/____/ \__, //____//_/  /_/ \__,_//_//_/ /_/ \__/ \___//_/ /_/ \__,_//_/ /_/ \___/ \___/
+      /____/
+version 1                                                       copyleft gamecuber6 2025
+
+
+"
+
 echo -n "Enter your sudo password: "
 
 read password
 
-echo $password | sudo -S dnf upgrade -y
+echo $password | sudo -S dnf5 upgrade -y
 
 echo $password | sudo -S flatpak update -y
 
@@ -20,7 +33,7 @@ bleachbit --clean bash.history chromium.cache chromium.cookies chromium.dom chro
 
 read -p "Updates have been done and the system has been fully cleaned up. Would you like to reboot? (y/n)" CONT
 if [ "$CONT" = "y" ]; then
-  echo "shutdown -r +30";
+  echo $(reboot);
 else
-  echo "exit 0";
+  echo $(exit 0);
 fi
